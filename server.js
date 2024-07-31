@@ -13,10 +13,7 @@ function registerRoutes(dir, baseRoute = "") {
     const fullPath = path.join(dir, file);
     const routePath = path
       .join(baseRoute, file === "page.js" ? "" : file)
-      // .replace(/\\/g, "/");
-
-    console.log("fullPath ->", fullPath);
-    console.log("routePath ->", routePath);
+      .replace(/\\/g, "/");
 
     if (fs.lstatSync(fullPath).isDirectory()) {
       registerRoutes(fullPath, routePath);
